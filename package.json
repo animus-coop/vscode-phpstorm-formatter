@@ -5,11 +5,16 @@
   "author": "Animus Coop <@animus-coop>",
   "version": "0.0.1",
   "publisher": "animus-coop",
-  "license": "SEE LICENSE IN /LICENSE",
   "preview": true,
+  "license": "SEE LICENSE IN /LICENSE",
+  "homepage": "https://github.com/animus-coop/vscode-phpstorm-formatter/blob/master/README.md",
   "repository": {
     "type": "git",
     "url": "https://github.com/animus-coop/vscode-phpstorm-formatter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/animus-coop/vscode-phpstorm-formatter/issues",
+    "email": "manu@animus.com.ar"
   },
   "engines": {
     "vscode": "^1.40.0"

@@ -2,6 +2,15 @@
 
 PHPStorm Formatter integrated into Visual Studio Code. **Note: PHPStorm IDE required.**
 
+<p align="center">
+  <a href="https://marketplace.visualstudio.com/items?itemName=animus-coop.vscode-phpstorm-formatter">
+    <img alt="VS Code Marketplace Downloads" src="https://img.shields.io/visual-studio-marketplace/d/animus-coop.vscode-phpstorm-formatter"></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=animus-coop.vscode-phpstorm-formatter">
+    <img alt="VS Code Marketplace Installs" src="https://img.shields.io/visual-studio-marketplace/i/animus-coop.vscode-phpstorm-formatter"></a>
+  <a href="https://github.com/animus-coop">
+    <img alt="Animus Coop." src="https://img.shields.io/badge/By-ANIMUS%20Coop.-red"></a>
+</p>
+
 ## Features
 
 Format documents using PHPStorm command line formatter.
