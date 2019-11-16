@@ -3,7 +3,7 @@
   "displayName": "PHPStorm Formatter",
   "description": "PHPStorm Formatter integrated into Visual Studio Code.",
   "author": "Animus Coop <@animus-coop>",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "animus-coop",
   "preview": true,
   "license": "SEE LICENSE IN /LICENSE",

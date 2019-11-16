@@ -51,7 +51,6 @@ This extension contributes the following settings:
 ---
 ## Release Notes
 
-### [0.0.1] - 2019-11-15
-- Initial commit
+## [0.0.2] - 2019-11-16
 
 [Read the complete CHANGELOG](https://github.com/animus-coop/vscode-phpstorm-formatter/blob/master/CHANGELOG.md)
