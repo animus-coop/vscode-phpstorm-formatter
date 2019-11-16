@@ -1,0 +1,61 @@
+{
+  "name": "vscode-phpstorm-formatter",
+  "displayName": "PHPStorm Formatter",
+  "description": "PHPStorm Formatter integrated into Visual Studio Code.",
+  "author": "Animus Coop <@animus-coop>",
+  "version": "0.0.1",
+  "publisher": "animus-coop",
+  "license": "SEE LICENSE IN /LICENSE",
+  "preview": true,
+  "engines": {
+    "vscode": "^1.40.0"
+  },
+  "categories": [
+    "Formatters"
+  ],
+  "activationEvents": [
+    "onLanguage:php",
+    "onLanguage:blade"
+  ],
+  "main": "./src/extension.js",
+  "keywords": [
+    "formatter",
+    "phpstorm"
+  ],
+  "scripts": {
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.1",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.11.7",
+    "@types/vscode": "^1.40.0",
+    "eslint": "^6.6.0",
+    "glob": "^7.1.5",
+    "mocha": "^6.2.2",
+    "typescript": "^3.6.4",
+    "vscode-test": "^1.2.2"
+  },
+  "contributes": {
+    "configuration": {
+      "title": "PHPStorm Formatter",
+      "properties": {
+        "phpstormFormatter.ideBinPath": {
+          "type": "string",
+          "default": null,
+          "description": "The full path to the PHPStorm <IDE_HOME>/bin directory."
+        },
+        "phpstormFormatter.styleGuidePath": {
+          "type": "string",
+          "default": null,
+          "description": "Format code according to this code style settings file."
+        },
+        "phpstormFormatter.revertFile": {
+          "type": "boolean",
+          "default": false,
+          "description": "Automatically revert file after formatting. Used to force a refresh of the formatted file content."
+        }
+      }
+    }
+  }
+}
