@@ -6,7 +6,7 @@ PHPStorm Formatter integrated into Visual Studio Code. **Note: PHPStorm IDE requ
 
 Format documents using PHPStorm command line formatter.
 
-![Formatter in action](https://raw.githubusercontent.com/manuvalle/vscode-phpstorm-formatter/master/screenshot.gif)
+![Formatter in action](https://raw.githubusercontent.com/animus-coop/vscode-phpstorm-formatter/master/screenshot.gif)
 
 ## Requirements
 
@@ -32,4 +32,4 @@ This extension contributes the following settings:
 
 There are no releases yet.
 
-[Read the complete CHANGELOG](https://github.com/manuvalle/vscode-phpstorm-formatter/blob/master/CHANGELOG.md)
+[Read the complete CHANGELOG](https://github.com/animus-coop/vscode-phpstorm-formatter/blob/master/CHANGELOG.md)
