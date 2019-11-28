@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.3] - 2019-11-27
+### Added
+- Allow dirty documents formatting: format the document text on a tmp file and write it back on the target document. Suggestion by [@lllopo](https://github.com/lllopo).
+
+### Changed
+- Switch to TypeScript and restructure the code.
+- Update extension settings without reloading.
+
+### Removed
+- Remove `phpstormFormatter.revertFile` setting.
+
 ## [0.0.2] - 2019-11-16
 ### Added
 - Badges on README.
