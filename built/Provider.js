@@ -9,26 +9,32 @@ class Provider {
     documentFormattingEditProvider() {
         return vscode_1.languages.registerDocumentFormattingEditProvider({ scheme: 'file' }, {
             provideDocumentFormattingEdits: (document) => {
-                return new Promise((resolve, reject) => {
-                    const targetText = document.getText();
-                    const lastLine = document.lineAt(document.lineCount - 1);
-                    const range = new vscode_1.Range(new vscode_1.Position(0, 0), lastLine.range.end);
-                    this.formatter
-                        .format(targetText)
-                        .then((text) => {
-                        vscode_1.window.showInformationMessage('PHPStorm Formatter: Document formatted');
-                        if (targetText !== text) {
-                            resolve([new vscode_1.TextEdit(range, text)]);
-                        }
-                        else {
-                            reject();
-                        }
-                    })
-                        .catch(err => {
-                        if (err instanceof Error) {
-                            vscode_1.window.showErrorMessage(`PHPStorm Formatter: ${err.message}`);
-                        }
-                        reject();
+                return vscode_1.window.withProgress({
+                    location: vscode_1.ProgressLocation.Notification,
+                    title: 'PHPStorm Formatter: Formatting document'
+                }, () => {
+                    return new Promise((resolve, reject) => {
+                        const targetText = document.getText();
+                        const lastLine = document.lineAt(document.lineCount - 1);
+                        const range = new vscode_1.Range(new vscode_1.Position(0, 0), lastLine.range.end);
+                        setTimeout(() => {
+                            this.formatter
+                                .format(targetText)
+                                .then((text) => {
+                                if (targetText !== text) {
+                                    resolve([new vscode_1.TextEdit(range, text)]);
+                                }
+                                else {
+                                    reject();
+                                }
+                            })
+                                .catch(err => {
+                                if (err instanceof Error) {
+                                    vscode_1.window.showErrorMessage(err.message);
+                                }
+                                reject();
+                            });
+                        });
                     });
                 });
             }

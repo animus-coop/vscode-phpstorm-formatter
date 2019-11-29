@@ -23,8 +23,7 @@
     "Formatters"
   ],
   "activationEvents": [
-    "onLanguage:php",
-    "onLanguage:blade"
+    "*"
   ],
   "main": "./built/extension.js",
   "icon": "icon.png",
@@ -34,7 +33,13 @@
   },
   "keywords": [
     "formatter",
-    "phpstorm"
+    "phpstorm",
+    "php",
+    "blade",
+    "css",
+    "js",
+    "all",
+    "any"
   ],
   "scripts": {
     "vscode:prepublish": "npm run compile",

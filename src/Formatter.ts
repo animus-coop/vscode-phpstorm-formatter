@@ -3,18 +3,15 @@ import * as cp from 'child_process';
 import * as path from 'path';
 import * as os from 'os';
 import * as fs from 'fs';
-import StatusBarView from './StatusBarView';
 
 const isWin = process.platform === 'win32';
 
 export default class Formatter {
   private binPath: string;
   private styleGuidePath: string;
-  private statusBar: StatusBarView;
 
   constructor() {
     this.loadSettings();
-    this.statusBar = new StatusBarView();
   }
 
   public loadSettings(): void {
@@ -32,8 +29,6 @@ export default class Formatter {
           )
         );
       }
-
-      // TODO: this.statusBar.showLoading();
 
       const targetPath: string = window.activeTextEditor.document.fileName;
       const targetExt: string = path.extname(targetPath);
@@ -53,7 +48,7 @@ export default class Formatter {
         return reject(new Error(`Could not create tmp file in "${tmpDir}"`));
       }
 
-      // Append the phpstorm format script
+      // Set the phpstorm format script base command
       let formatCmd: string = path.join(
         this.binPath,
         `/format${isWin ? '.bat' : '.sh'}`

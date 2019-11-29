@@ -5,12 +5,10 @@ const cp = require("child_process");
 const path = require("path");
 const os = require("os");
 const fs = require("fs");
-const StatusBarView_1 = require("./StatusBarView");
 const isWin = process.platform === 'win32';
 class Formatter {
     constructor() {
         this.loadSettings();
-        this.statusBar = new StatusBarView_1.default();
     }
     loadSettings() {
         let config = vscode_1.workspace.getConfiguration('phpstormFormatter');
@@ -22,7 +20,6 @@ class Formatter {
             if (!this.binPath) {
                 return reject(new Error('Please configure the phpstormFormatter.ideBinPath setting.'));
             }
-            // TODO: this.statusBar.showLoading();
             const targetPath = vscode_1.window.activeTextEditor.document.fileName;
             const targetExt = path.extname(targetPath);
             // Create tmp file
