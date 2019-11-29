@@ -3,7 +3,7 @@
   "displayName": "PHPStorm Formatter",
   "description": "PHPStorm Formatter integrated into Visual Studio Code.",
   "author": "Animus Coop <@animus-coop>",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "animus-coop",
   "preview": true,
   "license": "SEE LICENSE IN /LICENSE",
@@ -23,10 +23,9 @@
     "Formatters"
   ],
   "activationEvents": [
-    "onLanguage:php",
-    "onLanguage:blade"
+    "*"
   ],
-  "main": "./src/extension.js",
+  "main": "./built/extension.js",
   "icon": "icon.png",
   "galleryBanner": {
     "color": "#3c4557",
@@ -34,10 +33,19 @@
   },
   "keywords": [
     "formatter",
-    "phpstorm"
+    "phpstorm",
+    "php",
+    "blade",
+    "css",
+    "js",
+    "all",
+    "any"
   ],
   "scripts": {
-    "test": "node ./test/runTest.js"
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "lint": "tslint -p ./",
+    "watch": "tsc -watch -p ./"
   },
   "devDependencies": {
     "@types/glob": "^7.1.1",
@@ -63,11 +71,6 @@
           "type": "string",
           "default": null,
           "description": "Format code according to this code style settings file."
-        },
-        "phpstormFormatter.revertFile": {
-          "type": "boolean",
-          "default": false,
-          "description": "Automatically revert file after formatting. Used to force a refresh of the formatted file content."
         }
       }
     }

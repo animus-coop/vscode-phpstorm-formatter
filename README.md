@@ -41,16 +41,14 @@ This extension contributes the following settings:
 
 - `phpstormFormatter.ideBinPath`: The full path to the PHPStorm <IDE_HOME>/bin directory.
 - `phpstormFormatter.styleGuidePath`: Format code according to this code style settings file.
-- `phpstormFormatter.revertFile`: Automatically revert file after formatting. Used to force a refresh of the formatted file content.
 
 ## Known Issues
 
 - The PHPStorm command line formatter cannot be run while another instance of PHPStorm IDE is running, therefore this formatter cannot be used while PHPStorm is running.
-- As on the background we're using an external formatter; you must save your document before attempting to format it.
 
 ---
 ## Release Notes
 
-## [0.0.2] - 2019-11-16
+## [0.0.3] - 2019-11-29
 
 [Read the complete CHANGELOG](https://github.com/animus-coop/vscode-phpstorm-formatter/blob/master/CHANGELOG.md)
