@@ -4,11 +4,11 @@ PHPStorm Formatter integrated into Visual Studio Code. **Note: PHPStorm IDE requ
 
 <p align="center">
   <a href="https://marketplace.visualstudio.com/items?itemName=animus-coop.vscode-phpstorm-formatter">
-    <img alt="VS Code Marketplace Downloads" src="https://img.shields.io/visual-studio-marketplace/d/animus-coop.vscode-phpstorm-formatter"></a>
+    <img alt="VS Code Marketplace Downloads" src="https://img.shields.io/visual-studio-marketplace/d/animus-coop.vscode-phpstorm-formatter?v=1"></a>
   <a href="https://marketplace.visualstudio.com/items?itemName=animus-coop.vscode-phpstorm-formatter">
-    <img alt="VS Code Marketplace Installs" src="https://img.shields.io/visual-studio-marketplace/i/animus-coop.vscode-phpstorm-formatter"></a>
+    <img alt="VS Code Marketplace Installs" src="https://img.shields.io/visual-studio-marketplace/i/animus-coop.vscode-phpstorm-formatter?v=1"></a>
   <a href="https://github.com/animus-coop">
-    <img alt="Animus Coop." src="https://img.shields.io/badge/By-ANIMUS%20Coop.-red"></a>
+    <img alt="Animus Coop." src="https://img.shields.io/badge/By-ANIMUS%20Coop.-red?v=1"></a>
 </p>
 
 ## Features
@@ -45,10 +45,11 @@ This extension contributes the following settings:
 ## Known Issues
 
 - The PHPStorm command line formatter cannot be run while another instance of PHPStorm IDE is running, therefore this formatter cannot be used while PHPStorm is running.
+- PHPStorm might run out of memory trying to format the document, make sure to increase the memory heap limit of the VM: https://www.jetbrains.com/help/idea/increasing-memory-heap.html
 
 ---
 ## Release Notes
 
-## [0.0.3] - 2019-11-29
+## [0.0.4] - 2020-04-13
 
 [Read the complete CHANGELOG](https://github.com/animus-coop/vscode-phpstorm-formatter/blob/master/CHANGELOG.md)

@@ -30,7 +30,7 @@ class Provider {
                             })
                                 .catch(err => {
                                 if (err instanceof Error) {
-                                    vscode_1.window.showErrorMessage(err.message);
+                                    vscode_1.window.showErrorMessage(`PHPStorm Formatter: ${err.message}`);
                                 }
                                 reject();
                             });

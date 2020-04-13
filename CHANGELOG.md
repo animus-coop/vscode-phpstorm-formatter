@@ -5,7 +5,14 @@ All notable changes to the "vscode-phpstorm-formatter" extension will be documen
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+<!-- ## [Unreleased] -->
+
+## [0.0.4] - 2020-04-13
+### Added
+- Warn if trying to execute the formatter from WSL.
+
+### Changed
+- Fixed paths being executed from Windows. [#8](https://github.com/animus-coop/vscode-phpstorm-formatter/issues/8)
 
 ## [0.0.3] - 2019-11-29
 ### Added

@@ -49,7 +49,9 @@ export default class Provider {
                     })
                     .catch(err => {
                       if (err instanceof Error) {
-                        window.showErrorMessage(err.message);
+                        window.showErrorMessage(
+                          `PHPStorm Formatter: ${err.message}`
+                        );
                       }
                       reject();
                     });
