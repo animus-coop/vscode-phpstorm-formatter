@@ -19,35 +19,8 @@ export default class Provider {
   }
 
   public documentFormattingEditProvider(): Disposable {
-    console.log(languages);
-
     return languages.registerDocumentFormattingEditProvider(
-      [
-        { scheme: 'file', language: 'php' },
-        { scheme: 'file', language: 'json' },
-        { scheme: 'file', language: 'python' },
-        { scheme: 'file', language: 'typescript' },
-        { scheme: 'file', language: 'xml' },
-        { scheme: 'file', language: 'xsl' },
-        { scheme: 'file', language: 'yaml' },
-        { scheme: 'file', language: 'vb' },
-        { scheme: 'file', language: 'javascript' },
-        { scheme: 'file', language: 'html' },
-        { scheme: 'file', language: 'ini' },
-        { scheme: 'file', language: 'java' },
-        { scheme: 'file', language: 'go' },
-        { scheme: 'file', language: 'css' },
-        { scheme: 'file', language: 'dockerfile' },
-        { scheme: 'file', language: 'cpp' },
-        { scheme: 'file', language: 'c' },
-        { scheme: 'file', language: 'less' },
-        { scheme: 'file', language: 'scss' },
-        { scheme: 'file', language: 'shellscript' },
-        { scheme: 'file', language: 'jsonc' },
-        { scheme: 'file', language: 'swift' },
-        { scheme: 'file', language: 'ruby' },
-        { scheme: 'file', language: 'sql' },
-    ],
+      { scheme: 'file' },
       {
         provideDocumentFormattingEdits: (document: TextDocument) => {
           return window.withProgress(

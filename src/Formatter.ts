@@ -3,7 +3,6 @@ import * as cp from 'child_process';
 import * as path from 'path';
 import * as os from 'os';
 import * as fs from 'fs';
-const isWsl = require('is-wsl');
 
 const isWin = process.platform === 'win32';
 
@@ -21,9 +20,28 @@ export default class Formatter {
     this.styleGuidePath = config.get('styleGuidePath');
   }
 
+  private isWsl(): boolean {
+    if (process.platform !== 'linux') {
+      return false;
+    }
+
+    if (os.release().toLowerCase().includes('microsoft')) {
+      return true;
+    }
+
+    try {
+      return fs
+        .readFileSync('/proc/version', 'utf8')
+        .toLowerCase()
+        .includes('microsoft');
+    } catch (_) {
+      return false;
+    }
+  }
+
   public format(targetText: string): Promise<string> {
     return new Promise<string>((resolve, reject) => {
-      if (isWsl) {
+      if (this.isWsl()) {
         return reject(new Error('WSL is not supported.'));
       }
 

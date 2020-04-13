@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- ## [Unreleased] -->
 
+## [0.0.6] - 2020-04-13
+### Changed
+- Remove is-wsl dependency.
+- Revert 0.0.5 code.
+
 ## [0.0.5] - 2020-04-13
 ### Changed
 - Fixed document filter pattern
