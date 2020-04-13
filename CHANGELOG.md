@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- ## [Unreleased] -->
 
+## [0.0.4-r1] - 2020-04-13
+### Changed
+- Fixed document filter pattern
+
 ## [0.0.4] - 2020-04-13
 ### Added
 - Warn if trying to execute the formatter from WSL.

@@ -50,6 +50,6 @@ This extension contributes the following settings:
 ---
 ## Release Notes
 
-## [0.0.4] - 2020-04-13
+## [0.0.4-r1] - 2020-04-13
 
 [Read the complete CHANGELOG](https://github.com/animus-coop/vscode-phpstorm-formatter/blob/master/CHANGELOG.md)
