@@ -5,6 +5,7 @@ const cp = require("child_process");
 const path = require("path");
 const os = require("os");
 const fs = require("fs");
+const isWsl = require('is-wsl');
 const isWin = process.platform === 'win32';
 class Formatter {
     constructor() {
@@ -17,6 +18,9 @@ class Formatter {
     }
     format(targetText) {
         return new Promise((resolve, reject) => {
+            if (isWsl) {
+                return reject(new Error('WSL is not supported.'));
+            }
             if (!this.binPath) {
                 return reject(new Error('Please configure the phpstormFormatter.ideBinPath setting.'));
             }
@@ -34,10 +38,16 @@ class Formatter {
             catch (err) {
                 return reject(new Error(`Could not create tmp file in "${tmpDir}"`));
             }
-            // Append the phpstorm format script
+            // Set the phpstorm format script base command
             let formatCmd = path.join(this.binPath, `/format${isWin ? '.bat' : '.sh'}`);
+            if (isWin) {
+                formatCmd = formatCmd.replace(/ /g, '^ ');
+            }
             // Use style guide file if provided
             if (this.styleGuidePath) {
+                if (isWin) {
+                    this.styleGuidePath = this.styleGuidePath.replace(/ /g, '^ ');
+                }
                 formatCmd = `${formatCmd} -s ${this.styleGuidePath}`;
             }
             // Run phpstorm formatter script
@@ -45,7 +55,8 @@ class Formatter {
                 cp.execSync(`${formatCmd} ${tmpFileName}`);
             }
             catch (err) {
-                return reject(new Error('Failed to format document'));
+                console.error('PHPSTORM Formatter: ' + err);
+                return reject(new Error('Failed to format the document'));
             }
             // Get formatted text
             const formatted = fs.readFileSync(tmpFileName, 'utf-8');

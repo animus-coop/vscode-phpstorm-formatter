@@ -3,6 +3,7 @@ import * as cp from 'child_process';
 import * as path from 'path';
 import * as os from 'os';
 import * as fs from 'fs';
+const isWsl = require('is-wsl');
 
 const isWin = process.platform === 'win32';
 
@@ -22,6 +23,10 @@ export default class Formatter {
 
   public format(targetText: string): Promise<string> {
     return new Promise<string>((resolve, reject) => {
+      if (isWsl) {
+        return reject(new Error('WSL is not supported.'));
+      }
+
       if (!this.binPath) {
         return reject(
           new Error(
@@ -54,8 +59,16 @@ export default class Formatter {
         `/format${isWin ? '.bat' : '.sh'}`
       );
 
+      if (isWin) {
+        formatCmd = formatCmd.replace(/ /g, '^ ');
+      }
+
       // Use style guide file if provided
       if (this.styleGuidePath) {
+        if (isWin) {
+          this.styleGuidePath = this.styleGuidePath.replace(/ /g, '^ ');
+        }
+
         formatCmd = `${formatCmd} -s ${this.styleGuidePath}`;
       }
 
@@ -63,7 +76,8 @@ export default class Formatter {
       try {
         cp.execSync(`${formatCmd} ${tmpFileName}`);
       } catch (err) {
-        return reject(new Error('Failed to format document'));
+        console.error('PHPSTORM Formatter: ' + err);
+        return reject(new Error('Failed to format the document'));
       }
 
       // Get formatted text

@@ -3,7 +3,7 @@
   "displayName": "PHPStorm Formatter",
   "description": "PHPStorm Formatter integrated into Visual Studio Code.",
   "author": "Animus Coop <@animus-coop>",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "publisher": "animus-coop",
   "preview": true,
   "license": "SEE LICENSE IN /LICENSE",
@@ -54,6 +54,7 @@
     "@types/vscode": "^1.40.0",
     "eslint": "^6.6.0",
     "glob": "^7.1.5",
+    "is-wsl": "^2.1.1",
     "mocha": "^6.2.2",
     "typescript": "^3.6.4",
     "vscode-test": "^1.2.2"
